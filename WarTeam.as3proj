@@ -6,10 +6,10 @@
     <movie input="" />
     <movie path="bin\WarTeam.swf" />
     <movie fps="30" />
-    <movie width="800" />
-    <movie height="600" />
+    <movie width="1000" />
+    <movie height="768" />
     <movie version="11" />
-    <movie background="#FFFFFF" />
+    <movie background="#272727" />
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
@@ -48,6 +48,7 @@
   <!-- SWC Libraries -->
   <libraryPaths>
     <element path="libs\Flare3D_2046.swc" />
+    <element path="assets\ui.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>

@@ -15,7 +15,7 @@ package nid.game.wt
 	 */
 	public class Application
 	{
-		public var stage:Stage;
+		public static var stage:Stage;
 		public var ui:UserInterface;
 		public var game:GameEngine;
 		public var network:Network;
@@ -33,7 +33,7 @@ package nid.game.wt
 			
 		}
 		
-		private function boot(root:DisplayObject):void
+		public function boot(root:DisplayObject):void
 		{
 			stage = root.stage;
 			stage.align = StageAlign.TOP_LEFT;
@@ -46,6 +46,8 @@ package nid.game.wt
 			
 			stage.addChild(ui);
 			ui.init();
+			
+			stage.addEventListener(Event.RESIZE, ui.resize);
 			
 			network = new Network();
 		}

@@ -24,7 +24,7 @@ package nid.game.network
 		{
 			
 		}
-		public function get exist():Boolean { };
+		public function get exist():Boolean { return true; }
 	}
 
 }
