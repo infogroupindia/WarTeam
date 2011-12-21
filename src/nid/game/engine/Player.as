@@ -9,6 +9,7 @@ package nid.game.engine
 	public class Player extends MovieClip 
 	{
 		public var angle:Number;
+		public var id:int;
 		
 		public function Player() 
 		{

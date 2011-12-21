@@ -49,16 +49,15 @@ package nid.game.shell
 		}
 		public function init():void
 		{
-			current_view = viewStack[ViewList.LOGIN_VIEW];
-			view_layer.addChild(viewStack[ViewList.LOGIN_VIEW]);
-			current_view.open();
-			current_view.align();
+			
 		}
 		public function handleViewChange(e:ViewEvent):void 
 		{
 			flush();
-			
 			view_layer.addChild(viewStack[e.view]);
+			current_view = viewStack[e.view];
+			current_view.open();
+			current_view.align();
 		}
 		public function resize(e:Event):void
 		{

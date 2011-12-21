@@ -35,21 +35,19 @@ package nid.game.wt
 		
 		public function boot(root:DisplayObject):void
 		{
-			stage = root.stage;
-			stage.align = StageAlign.TOP_LEFT;
+			stage 			= root.stage;
+			stage.align 	= StageAlign.TOP_LEFT;
 			stage.scaleMode = StageScaleMode.NO_SCALE;
 			
-			parameters = root.loaderInfo.parameters;
+			parameters 	= root.loaderInfo.parameters;
 			
-			ui = new UserInterface();
 			network = new Network();
+			game 	= new GameEngine(stage);
+			ui 		= new UserInterface();
 			
 			stage.addChild(ui);
 			ui.init();
-			
 			stage.addEventListener(Event.RESIZE, ui.resize);
-			
-			network = new Network();
 		}
 		
 	}
