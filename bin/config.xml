@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+	<server>
+		<xml_socket port="" ip="127.0.0.1" />
+	</server>
+	<levels>
+		<level id="1" name="level_1" url="levels/level_1.f3d"/>
+		<level id="2" name="level_2" url="levels/level_2.f3d"/>
+	</levels>
+	<players>
+		<player id="1" name="style_1" url="models/player_1.f3d"/>
+		<player id="2" name="style_2" url="models/player_2.f3d"/>
+	</players>
+</data>

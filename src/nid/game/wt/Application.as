@@ -6,9 +6,12 @@ package nid.game.wt
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
 	import flash.events.Event;
+	import flash.events.EventDispatcher;
 	import nid.game.engine.GameEngine;
 	import nid.game.network.Network;
 	import nid.game.shell.UserInterface;
+	import nid.game.wt.events.ViewEvent;
+	import nid.game.wt.view.ViewList;
 	/**
 	 * ...
 	 * @author Nidin P Vinayakan
@@ -16,6 +19,8 @@ package nid.game.wt
 	public class Application
 	{
 		public static var stage:Stage;
+		public static var notifier:EventDispatcher;
+		
 		public var ui:UserInterface;
 		public var game:GameEngine;
 		public var network:Network;
@@ -30,7 +35,7 @@ package nid.game.wt
 		
 		public function Application() 
 		{
-			
+			notifier = new EventDispatcher();
 		}
 		
 		public function boot(root:DisplayObject):void
@@ -47,6 +52,7 @@ package nid.game.wt
 			
 			stage.addChild(ui);
 			ui.init();
+			notifier.dispatchEvent(new ViewEvent(ViewEvent.VIEW_CHANGE, { view:ViewList.GAME_VIEW } ));
 			stage.addEventListener(Event.RESIZE, ui.resize);
 		}
 		

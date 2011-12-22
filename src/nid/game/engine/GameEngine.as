@@ -23,11 +23,12 @@ package nid.game.engine
 			viewport 	= new Viewport();
 			stage.addChild(viewport);
 			stage.removeChild(viewport);
+			init();
 		}
 		/**
 		 * Game engine controls
 		 */
-		public function start():void
+		public function init():void
 		{
 			scene = new Scene3D(viewport);
 			scene.camera = new Camera3D( "camera_01" );
@@ -40,7 +41,6 @@ package nid.game.engine
 			
 			environment = new Environment();
 			playerStack = new Vector.<Player>();
-			addEventListener(Event.ENTER_FRAME, render);
 		}
 		
 		private function completeEvent(e:Event):void 
@@ -75,16 +75,28 @@ package nid.game.engine
 			var player:Player = new Player(data);
 			playerStack.push(player);
 		}
-		public function left(id:int):void
+		public function leave(id:int):void
 		{
+			var tmp_1:Vector.<Player> = new Vector.<Player>();
+			
 			for (var i:int = 0; i < playerStack.length; i++)
 			{
 				if (playerStack[i].id == id)
 				{
-					
 					playerStack[i].distroy();
 				}
+				else
+				{
+					tmp_1.push(playerStack[i]);
+				}
 			}
+			playerStack = null;
+			playerStack = tmp_1;
+		}
+		
+		public function resize():void 
+		{
+			
 		}
 	}
 

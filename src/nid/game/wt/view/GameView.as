@@ -1,6 +1,7 @@
 package nid.game.wt.view 
 {
 	import flash.display.Sprite;
+	import nid.game.engine.Viewport;
 	import nid.game.wt.Application;
 	
 	/**
@@ -9,7 +10,7 @@ package nid.game.wt.view
 	 */
 	public class GameView extends Sprite 
 	{
-		private var gameport;
+		private var gameport:Viewport;
 		
 		public function GameView() 
 		{
@@ -24,13 +25,12 @@ package nid.game.wt.view
 		}
 		public function close():void 
 		{
-			if (contains(gameport)) removeChild(gameport);
 			Application.getInstance().game.pause();
+			if (contains(gameport)) removeChild(gameport);
 		}
-		
 		public function align():void
 		{
-			
+			Application.getInstance().game.resize();
 		}
 	}
 
