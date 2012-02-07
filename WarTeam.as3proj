@@ -5,9 +5,9 @@
     <movie outputType="Application" />
     <movie input="" />
     <movie path="bin\WarTeam.swf" />
-    <movie fps="30" />
+    <movie fps="60" />
     <movie width="1000" />
-    <movie height="768" />
+    <movie height="550" />
     <movie version="11" />
     <movie minorVersion="1" />
     <movie platform="Flash Player" />
@@ -50,8 +50,9 @@
   </includeLibraries>
   <!-- SWC Libraries -->
   <libraryPaths>
-    <element path="libs\Flare3D_2046.swc" />
     <element path="assets\ui.swc" />
+    <element path="libs\Flare3D_2047b.swc" />
+    <element path="assets\keyconfig.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>

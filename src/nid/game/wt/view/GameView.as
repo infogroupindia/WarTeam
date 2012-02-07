@@ -14,7 +14,11 @@ package nid.game.wt.view
 		
 		public function GameView() 
 		{
+			var keyconfig:KeyConfig = new KeyConfig();
+			keyconfig.x = 100;
+			keyconfig.y = 20;
 			gameport = Application.getInstance().game.viewport;
+			gameport.addChild(keyconfig);
 		}
 		
 		public function get title():String { return ViewList.GAME_VIEW; }

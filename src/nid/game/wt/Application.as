@@ -11,6 +11,7 @@ package nid.game.wt
 	import nid.game.network.Network;
 	import nid.game.shell.UserInterface;
 	import nid.game.wt.events.ViewEvent;
+	import nid.game.wt.game.WTGame;
 	import nid.game.wt.view.ViewList;
 	/**
 	 * ...
@@ -22,7 +23,7 @@ package nid.game.wt
 		public static var notifier:EventDispatcher;
 		
 		public var ui:UserInterface;
-		public var game:GameEngine;
+		public var game:WTGame;
 		public var network:Network;
 		public var parameters:Object;
 		
@@ -47,7 +48,7 @@ package nid.game.wt
 			parameters 	= root.loaderInfo.parameters;
 			
 			network = new Network();
-			game 	= new GameEngine(stage);
+			game 	= new WTGame(stage);
 			ui 		= new UserInterface();
 			
 			stage.addChild(ui);
