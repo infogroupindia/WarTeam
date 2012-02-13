@@ -16,6 +16,10 @@ package nid.game.engine.controller
 		{
 			
 		}
+		public function init():void
+		{
+			
+		}
 		public function setModel(model:Pivot3D):void
 		{
 			

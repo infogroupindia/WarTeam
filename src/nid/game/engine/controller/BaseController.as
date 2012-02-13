@@ -36,6 +36,7 @@ package nid.game.engine.controller
 		 */
 		public var keyDown:Boolean;
 		public var change:Boolean;
+		public var reload:Boolean;
 		public var isIdle:Boolean;
 		public var jumping:Boolean;
 		public var walking:Boolean;

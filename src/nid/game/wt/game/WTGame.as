@@ -9,8 +9,6 @@ package nid.game.wt.game
 	 */
 	public class WTGame extends GameEngine 
 	{
-		
-		
 		public function WTGame(stage:Stage) 
 		{
 			super(stage);

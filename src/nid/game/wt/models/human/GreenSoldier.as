@@ -1,7 +1,6 @@
 package nid.game.wt.models.human 
 {
 	import flare.core.Pivot3D;
-	import nid.game.engine.Character;
 	import nid.game.engine.GameEngine;
 	import nid.game.wt.game.Assets;
 	/**

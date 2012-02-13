@@ -10,11 +10,17 @@ package nid.game.engine
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
 	import flash.geom.Vector3D;
+	import flash.ui.Mouse;
+	import flash.ui.MouseCursor;
 	import nid.game.engine.controller.IController;
 	import nid.game.engine.controller.LocalController;
 	import nid.game.engine.controller.RemoteController;
 	import nid.game.engine.data.GameData;
 	import nid.game.engine.events.GameEvent;
+	import nid.game.engine.player.Player;
+	import nid.game.engine.world.Environment;
+	import nid.game.managers.CursorManager;
+	import nid.game.managers.SoundManager;
 	import nid.game.wt.CONFIG;
 	import nid.game.wt.game.Assets;
 	import nid.game.wt.ui.Preloader;
@@ -25,11 +31,13 @@ package nid.game.engine
 	 */
 	public class GameEngine extends EventDispatcher
 	{
+		public static var environment:Environment;
+		public static var scene:Scene3D;
+		public static var sound:SoundManager;
+		
 		private var stage:Stage;
 		public var viewport:Viewport;
-		private var environment:Environment;
 		private var playerStack:Vector.<Player>
-		public static var scene:Scene3D;
 		private var player:Player;
 		private var oldPosition:Vector3D = new Vector3D();
 		private var jump:Boolean;
@@ -45,7 +53,7 @@ package nid.game.engine
 			//stage.removeChild(viewport);
 			
 			preloader = new Preloader();
-			
+			sound = new SoundManager();
 			
 			init();
 		}
@@ -54,16 +62,17 @@ package nid.game.engine
 		 */
 		public function init():void
 		{
-			//scene = new Scene3D(viewport);
 			viewport.addChild(new Monitor());
 			
-			scene = new Scene3D(viewport);
+			scene = new Viewer3D(viewport);
+			//scene = new Scene3D(viewport);
 			scene.addEventListener( Scene3D.COMPLETE_EVENT, completeEvent );
 			scene.autoResize = true;
 			scene.registerClass( Flare3DLoader1 );
 			
 			scene.camera = new Camera3D( "camera_1" );
-			scene.camera.setPosition( -100, 100, -20 );
+			//scene.camera.setPosition( -100, 100, -20 );
+			scene.camera.setPosition( 0, 80, 100 );
 			scene.camera.lookAt( 0, 50, 0 );
 			
 			scene.pause();
@@ -94,6 +103,7 @@ package nid.game.engine
 			if (viewport.contains(preloader)) viewport.removeChild(preloader);
 			player.init();
 			resume();
+			Mouse.hide();
 		}
 		
 		private function progressEvent(e:Event):void 
@@ -104,12 +114,16 @@ package nid.game.engine
 		public function resume():void
 		{
 			trace('Game resume');
+			//Mouse.cursor = CursorManager.CROSS_HAIR;
+			//Mouse.hide();
 			scene.resume();
 			scene.addEventListener( Scene3D.UPDATE_EVENT, render);
 		}
 		public function pause():void
 		{
 			trace('Game pauses');
+			Mouse.cursor = MouseCursor.AUTO;
+			Mouse.show();
 			scene.removeEventListener( Scene3D.UPDATE_EVENT, render);
 			scene.pause();
 		}
@@ -119,6 +133,7 @@ package nid.game.engine
 			for (var i:int = 0; i < playerStack.length; i++)
 			{
 				playerStack[i].update();
+				Mouse.cursor = CursorManager.CROSS_HAIR;
 			}
 		}
 		

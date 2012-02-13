@@ -16,11 +16,12 @@
     </define>
     <define append="true">
       <name>CONFIG::timeStamp</name>
-      <value>'07-02-2012'</value>
+      <value>'12-02-2012'</value>
     </define>
     <verbose-stacktraces>true</verbose-stacktraces>
     <source-path append="true">
       <path-element>F:\Projects\WarTeam\src</path-element>
+      <path-element>F:\Projects\WarTeam\libs</path-element>
       <path-element>F:\Platforms\3D Engines\away 3D\away3d-away3d-core-fp11-f71921f\src</path-element>
       <path-element>C:\Program Files (x86)\FlashDevelop\Library\AS3\classes</path-element>
     </source-path>

@@ -8,6 +8,7 @@ package nid.game.wt
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
 	import nid.game.engine.GameEngine;
+	import nid.game.managers.CursorManager;
 	import nid.game.network.Network;
 	import nid.game.shell.UserInterface;
 	import nid.game.wt.events.ViewEvent;
@@ -21,6 +22,7 @@ package nid.game.wt
 	{
 		public static var stage:Stage;
 		public static var notifier:EventDispatcher;
+		public static var cursor:CursorManager;
 		
 		public var ui:UserInterface;
 		public var game:WTGame;
@@ -37,6 +39,7 @@ package nid.game.wt
 		public function Application() 
 		{
 			notifier = new EventDispatcher();
+			cursor = new CursorManager();
 		}
 		
 		public function boot(root:DisplayObject):void

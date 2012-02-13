@@ -10,7 +10,8 @@ package nid.game.engine.controller
 	public interface IController 
 	{
 		function update():void;		
-		function setModel(model:Pivot3D):void;
+		function setModel(model:Pivot3D):void;		
+		function init():void;
 	}
 	
 }
