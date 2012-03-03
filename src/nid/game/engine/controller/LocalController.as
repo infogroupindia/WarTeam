@@ -8,6 +8,7 @@ package nid.game.engine.controller
 	import flare.system.Input3D;
 	import flare.utils.Pivot3DUtils;
 	import flash.geom.Vector3D;
+	import flash.ui.Mouse;
 	import nid.game.engine.animation.SoldierAnimation;
 	import nid.game.engine.GameEngine;
 	/**
@@ -36,7 +37,8 @@ package nid.game.engine.controller
 		{
 			this.model = model;
 			this.model.y = 10;
-			this.model.z = 100;
+			this.model.rotateY(180);
+			//this.model.z = 100;
 			camera = GameEngine.scene.camera;
 			oldPosition.copyFrom( model.getPosition() );
 		}
@@ -58,7 +60,7 @@ package nid.game.engine.controller
 			}
 			else firing = false;
 			
-			//model.rotateY(Input3D.mouseXSpeed / 2);
+			model.rotateY(Input3D.mouseXSpeed / 2);
 			
 			loc_velocity = walkVelocity;
 			
@@ -98,7 +100,7 @@ package nid.game.engine.controller
 			
 			if ( Input3D.keyDown( Input3D.A ) )
 			{
-				direction = direction + (direction == ""?"":"_" ) + "left";
+				direction = direction + (direction == ""?"":"_") + "left";
 			}
 			else if ( Input3D.keyDown( Input3D.D ) )
 			{
@@ -159,8 +161,8 @@ package nid.game.engine.controller
 			oldPosition.copyFrom( model.getPosition() );
 			
 			//camera
-			//Pivot3DUtils.setPositionWithReference( camera, 0, 100, 100, model, 0.1 );
-			//Pivot3DUtils.lookAtWithReference( camera, 0, 50, 0, model);
+			Pivot3DUtils.setPositionWithReference( camera, 0, 100, 100, model, 0.1 );
+			Pivot3DUtils.lookAtWithReference( camera, 0, 50, 0, model);
 		}
 		
 		

@@ -4,9 +4,11 @@ package nid.game.wt
 	import flash.display.Sprite;
 	import flash.display.Stage;
 	import flash.display.StageAlign;
+	import flash.display.StageDisplayState;
 	import flash.display.StageScaleMode;
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
+	import flash.events.MouseEvent;
 	import nid.game.engine.GameEngine;
 	import nid.game.managers.CursorManager;
 	import nid.game.network.Network;
@@ -47,6 +49,13 @@ package nid.game.wt
 			stage 			= root.stage;
 			stage.align 	= StageAlign.TOP_LEFT;
 			stage.scaleMode = StageScaleMode.NO_SCALE;
+			//stage.doubleClickEnabled = true;
+			//stage.showDefaultContextMenu = false;
+			
+			//stage.displayState = StageDisplayState.FULL_SCREEN;
+			//stage.mouseLock = true;
+			
+			stage.addEventListener(MouseEvent.DOUBLE_CLICK, onDoubleClick);
 			
 			parameters 	= root.loaderInfo.parameters;
 			
@@ -58,6 +67,11 @@ package nid.game.wt
 			ui.init();
 			notifier.dispatchEvent(new ViewEvent(ViewEvent.VIEW_CHANGE, { view:ViewList.GAME_VIEW } ));
 			stage.addEventListener(Event.RESIZE, ui.resize);
+		}
+		
+		private function onDoubleClick(e:MouseEvent):void 
+		{
+			
 		}
 		
 	}

@@ -27,8 +27,8 @@ package nid.game.managers
 			{
 				if (channel != null) channel.stop();
 				busy = true;
-				channel = mp4fireFx.play(); 
-				channel.soundTransform = new SoundTransform(0.5);
+				channel = mp4fireFx.play();
+				channel.soundTransform = new SoundTransform(0.25);
 				setTimeout(function():void { busy = false; }, 60);
 			}
 		}

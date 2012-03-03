@@ -4,12 +4,12 @@
   <output>
     <movie outputType="Application" />
     <movie input="" />
-    <movie path="bin\WarTeam.swf" />
+    <movie path="F:\Platforms\SERVERS\wamp\www\warteam\WarTeam.swf" />
     <movie fps="60" />
     <movie width="1000" />
     <movie height="550" />
     <movie version="11" />
-    <movie minorVersion="1" />
+    <movie minorVersion="2" />
     <movie platform="Flash Player" />
     <movie background="#272727" />
   </output>

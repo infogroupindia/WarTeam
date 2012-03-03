@@ -7,6 +7,7 @@ package nid.game.engine
 	import flare.loaders.Flare3DLoader1;
 	import flare.system.Input3D;
 	import flash.display.Stage;
+	import flash.display.StageDisplayState;
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
 	import flash.geom.Vector3D;
@@ -64,8 +65,8 @@ package nid.game.engine
 		{
 			viewport.addChild(new Monitor());
 			
-			scene = new Viewer3D(viewport);
-			//scene = new Scene3D(viewport);
+			//scene = new Viewer3D(viewport);
+			scene = new Scene3D(viewport);
 			scene.addEventListener( Scene3D.COMPLETE_EVENT, completeEvent );
 			scene.autoResize = true;
 			scene.registerClass( Flare3DLoader1 );
@@ -96,6 +97,8 @@ package nid.game.engine
 			data.weapon = "m4";
 			player = new Player(scene, data , new LocalController());
 			playerStack.push(player);
+			
+			
 		}
 		
 		private function completeEvent(e:Event):void 
@@ -103,7 +106,7 @@ package nid.game.engine
 			if (viewport.contains(preloader)) viewport.removeChild(preloader);
 			player.init();
 			resume();
-			Mouse.hide();
+			//Mouse.hide();
 		}
 		
 		private function progressEvent(e:Event):void 
